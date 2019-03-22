@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Card from './Card';
+import {Card, PReact} from './Card';
+
 
 class App extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class App extends Component {
           <input onKeyPress={this.inputKeyPress} onChange={this.updateResponse} value={this.state.response}/>
           <p>Response is: {this.state.response}</p>
         </div>
+        <PReact />
       </div>
     );
   }
