@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import {Card, PReact} from './Card';
 
+// const divStyle = {
+//   color: 'red',
+//   padding: '10px',
+//   background: 'black'
+// }
 
 class App extends Component {
   constructor(props) {
@@ -10,24 +15,44 @@ class App extends Component {
     this.state = {
       num1: 1,
       num2: 1,
-      response: ""
+      response: "",
+      incorrect: false,
+      score: 0
     };
   }
 
   render() {
+    if(this.state.score === 10) {
+      return this.renderWin();
+    } else {
+      return this.renderProblem();
+    }
+  }
+
+  renderProblem() {
     return (
       <div>
         <Card />
-        <div>
-          <div id="problem">
+        <PReact />
+        <div id="app">
+          <div id="problem" className={this.state.incorrect ? "incorrect" : ""}>
             {this.state.num1} + {this.state.num2}
           </div>
-          <input onKeyPress={this.inputKeyPress} onChange={this.updateResponse} value={this.state.response}/>
-          <p>Response is: {this.state.response}</p>
+          <input placeholder="Enter answer here" onKeyPress={this.inputKeyPress} onChange={this.updateResponse} value={this.state.response}/>
+          <div>
+            Score: {this.state.score}
+          </div>
         </div>
-        <PReact />
       </div>
     );
+  }
+
+  renderWin() {
+    return (
+      <div id="winner">
+        You Win!
+      </div>
+    )
   }
 
   updateResponse = (event) => {
@@ -41,7 +66,14 @@ class App extends Component {
         this.setState({
           num1: Math.ceil(Math.random() * 10),
           num2: Math.ceil(Math.random() * 10),
-          response: ""
+          response: "",
+          incorrect: false,
+          score: this.state.score + 1,
+        });
+      } else {
+        this.setState({
+          response: "",
+          incorrect: true
         })
       }
     }
