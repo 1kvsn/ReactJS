@@ -24,9 +24,12 @@
 // console.log(store.getState(), 'me');
 
 
-// ToDo Script
-const store = Redux.createStore(reducer);
+// // ToDo Script
+const store = Redux.createStore(addTodo);
 const input = document.querySelector('input');
+
+const ul = document.querySelector('ul');
+const li = document.createElement('li');
 
 // store
 // reducer
@@ -35,7 +38,19 @@ const input = document.querySelector('input');
 
 
 // Reducer
-function addTodo(state=[], ) {
-
+function addTodo(state=[], action) {
+	switch(action.type) {
+		case 'ADDTODO':
+	return state.push(input.value);
+	default:
+	return state
+	}
 }
+
+store.subscribe(() => li.innerText = store.getState());
+
+input.addEventListener('keyup', () => store.dispatch({type: 'ADDTODO'}));
+
+console.log(store.getState(), 'me');
+
 

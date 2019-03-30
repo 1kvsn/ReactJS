@@ -137,7 +137,7 @@ class Battle extends Component {
              avatar={playerTwoImage}
              username={playerTwoName}>
               <button 
-                className="btn btn--form btn-reset"
+                className="button"
                 onClick={this.handleReset.bind(null, 'playerTwo')}>
                 Reset
               </button>
@@ -145,15 +145,15 @@ class Battle extends Component {
         </div>
         {playerOneImage && playerTwoImage &&
         <Link 
-            className="btn btn--form battle-btn" 
+            className="button" 
             to={{
               pathname: match.url +'/results',
               search: `?playerOneName=${playerOneName}&playerTwoName=${playerTwoName}`
             }}>
-               &#9812; Battle &#9812;
+               Battle
         </Link>}
       </div>
     )
   }
 }
-module.exports = Battle;
+export default Battle;

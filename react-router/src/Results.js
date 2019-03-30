@@ -1,7 +1,7 @@
 var React = require('react');
 var queryString = require('query-string');
 var PropTypes = require('prop-types');
-var api = require('../utils/api');
+var api = require('./api');
 var Link = require('react-router-dom').Link;
 var PlayerPreview = require('./PlayerPreview');
 var Loading = require('./Loading');
@@ -122,4 +122,4 @@ class Results extends React.Component{
   }
 }
 
-module.exports = Results;
+export default Results;

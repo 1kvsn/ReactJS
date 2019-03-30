@@ -5,17 +5,18 @@ import Popular from './Popular';
 import Nav from './Nav';
 import './App.css';
 import Home from './Home';
-var Battle = require('./Battle');
-var Results = require('./Results');
+import Battle from './Battle';
+import Results from './Results';
 
-class App extends React.Component {
+
+class App extends Component {
   render() {
     return (
       <Router>
         <div className="container">
           <Nav />
             <Route exact path='/' component={Home} />
-            <Route exact path='/battle' component={Battle} />
+            <Route path='/battle' component={Battle} />
             <Route path='/popular' component={Popular} />
             <Route path='/battle/results' component={Results} />
             {/* <Route render={function () {
