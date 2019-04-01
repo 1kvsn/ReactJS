@@ -7,13 +7,24 @@ class App extends Component {
   state = {
     user: null,
   }
+
+  showUser = (user) => {
+    this.setState({ user })
+  }
+
+  logOutUser = () => {
+    this.setState({
+      user: null,
+    })
+  }
+
   render() {
     return (
-      <div className="App">
+      <>
          {
-          (this.state.user) ? <User username={this.state.username} /> : <Login />
+          (this.state.user) ? <User logOutUser={this.logOutUser}/> : <Login showUser={this.showUser}/>
         }
-      </div>
+      </>
     );
   }
 }

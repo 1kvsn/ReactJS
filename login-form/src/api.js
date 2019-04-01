@@ -7,7 +7,7 @@ export function handleLogin(username, password){
 		if(username === "john" && password === "qwerty"){
 			res(user);
 		} else {
-			rej("User doesnot exist!")
+			rej("User doesn't exist!")
 		}
 	})
 	 

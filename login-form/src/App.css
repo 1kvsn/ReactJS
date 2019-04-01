@@ -71,6 +71,21 @@ input::placeholder {
 	background-color: transparent;
 	transition: all 7s ease-in;
 	background: -webkit-linear-gradient(right, rgb(106, 17, 203), rgb(37, 117, 252));
-	
 
+}
+.user-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.logout-btn {
+	width: 80px;
+	height: 40px;
+	padding: 10px;
+	font-size: 14px;
+	color: white;
+	background-color: black;
+	border-radius: 5px;
+	border: none;
+	margin: 10px;
 }
