@@ -1,4 +1,6 @@
 
+Reducer for Increment and Decrement
+
 import { createStore } from 'redux';
 
 export const store = createStore(counter);
@@ -12,3 +14,4 @@ export const store = createStore(counter);
 		 default: return state
 	}
 }
+
